@@ -28,37 +28,98 @@
     <canvas id="canvas-bg"></canvas>
 
     <div id="app">
-      <nav
-        class="fixed top-0 left-0 right-0 z-50 h-16 flex items-center justify-between px-12 border-b"
-        style="
-          border-color: var(--border);
-          background: rgba(11, 12, 16, 0.75);
-          backdrop-filter: blur(16px);
-        "
-      >
-        <a
-          href="index.html"
-          class="flex items-center gap-3 no-underline"
-          style="color: var(--fg)"
+      <div class="nav">
+        <nav
+          class="fixed top-0 left-0 right-0 z-50 h-16 flex items-center justify-between px-6 md:px-12 border-b"
+          style="
+            border-color: var(--border);
+            background: rgba(11, 12, 16, 0.75);
+            backdrop-filter: blur(16px);
+          "
         >
-          <img src="/logo.svg" height="64" width="128" />
-          <span
-            class="font-serif text-[1.15rem] font-semibold tracking-[0.04em] leading-tight"
+          <a
+            href="index.html"
+            class="flex items-center gap-3 no-underline"
+            style="color: var(--fg)"
           >
-            HooCS
+            <img src="/logo.svg" height="64" width="128" />
             <span
-              class="block font-sans font-light tracking-[0.15em] uppercase"
-              style="font-size: 0.55rem; color: var(--dim)"
-              >University of Virginia</span
+              class="font-serif text-[1.15rem] font-semibold tracking-[0.04em] leading-tight"
             >
-          </span>
-        </a>
-        <div class="flex items-center gap-10">
-          <a href="/" class="nav-link active">Home</a>
-          <a href="/speakers" class="nav-link">Speakers</a>
-          <a href="/shoocs" class="nav-link">SHooCS</a>
+              HooCS
+              <span
+                class="block font-sans font-light tracking-[0.15em] uppercase"
+                style="font-size: 0.55rem; color: var(--dim)"
+                >University of Virginia</span
+              >
+            </span>
+          </a>
+          <div class="hidden md:flex items-center gap-10">
+            <a href="/" class="nav-link active">Home</a>
+            <a href="/speakers" class="nav-link">Speakers</a>
+            <a href="/shoocs" class="nav-link">SHooCS</a>
+          </div>
+          <button
+            id="nav-toggle"
+            class="md:hidden flex flex-col justify-center items-center gap-[5px] w-8 h-8 bg-transparent border-0 cursor-pointer"
+            aria-label="Toggle navigation"
+          >
+            <span
+              class="hamburger-bar block w-4 h-[1.5px] transition-all duration-200"
+              style="background: var(--fg)"
+            ></span>
+            <span
+              class="hamburger-bar block w-4 h-[1.5px] transition-all duration-200"
+              style="background: var(--fg)"
+            ></span>
+            <span
+              class="hamburger-bar block w-4 h-[.755px] transition-all duration-200"
+              style="background: var(--fg)"
+            ></span>
+          </button>
+        </nav>
+
+        <div
+          id="nav-drawer"
+          class="fixed top-16 left-0 right-0 z-40 flex flex-col gap-6 px-8 py-8 md:hidden"
+          style="
+            display: none !important;
+            background: rgba(11, 12, 16, 0.96);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+          "
+        >
+          <a href="/" class="nav-link active" style="font-size: 0.9rem">Home</a>
+          <a href="/speakers" class="nav-link" style="font-size: 0.9rem"
+            >Speakers</a
+          >
+          <a href="/shoocs" class="nav-link" style="font-size: 0.9rem"
+            >SHooCS</a
+          >
         </div>
-      </nav>
+      </div>
+
+      <script>
+        (function () {
+          const btn = document.getElementById("nav-toggle");
+          const drawer = document.getElementById("nav-drawer");
+          let open = false;
+          btn.addEventListener("click", function () {
+            open = !open;
+            drawer.style.display = open ? "flex" : "none";
+            const bars = btn.querySelectorAll(".hamburger-bar");
+            if (open) {
+              bars[0].style.transform = "translateY(6.5px) rotate(45deg)";
+              bars[1].style.opacity = "0";
+              bars[2].style.transform = "translateY(-6.5px) rotate(-45deg)";
+            } else {
+              bars[0].style.transform = "";
+              bars[1].style.opacity = "";
+              bars[2].style.transform = "";
+            }
+          });
+        })();
+      </script>
 
       <section
         class="fade-in hero-pad flex flex-col justify-center px-12 py-20 max-w-3xl"
