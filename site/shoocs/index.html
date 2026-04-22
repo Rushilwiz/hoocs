@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SHooCS — HooCS Lab</title>
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="MyWebSite" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Space+Grotesk:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              serif: ['"Cormorant Garamond"', "Georgia", "serif"],
+              sans: ['"Space Grotesk"', "system-ui", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="stylesheet" href="/styles.css" />
+    <style>
+      /* White page overrides */
+      html,
+      body {
+        background: #fff;
+        color: #0b0c10;
+      }
+
+      .section-heading {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.4rem;
+        font-weight: 400;
+        color: #0b0c10;
+        margin-bottom: 0.85rem;
+      }
+
+      .body-copy {
+        font-size: 0.92rem;
+        line-height: 1.8;
+        color: #444;
+        font-weight: 300;
+      }
+
+      .prose-list {
+        margin-top: 0.75rem;
+        padding-left: 1.25rem;
+      }
+      .prose-list li {
+        font-size: 0.92rem;
+        line-height: 1.8;
+        color: #444;
+        font-weight: 300;
+        margin-bottom: 0.35rem;
+        list-style-type: disc;
+      }
+      .prose-list li::marker {
+        color: var(--accent);
+      }
+
+      footer {
+        background: #f4f4f4 !important;
+        border-top: 1px solid #ddd !important;
+        color: #888 !important;
+      }
+      .footer-logo {
+        color: #0b0c10;
+      }
+
+      .cta-btn:hover {
+        background: var(--accent);
+        color: #fff;
+      }
+
+      @media (max-width: 700px) {
+        .page-pad {
+          padding-left: 1.25rem !important;
+          padding-right: 1.25rem !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <nav
+        class="fixed top-0 left-0 right-0 z-50 h-16 flex items-center justify-between px-12 border-b"
+        style="
+          border-color: var(--border);
+          background: rgba(11, 12, 16, 0.75);
+          backdrop-filter: blur(16px);
+        "
+      >
+        <a
+          href="index.html"
+          class="flex items-center gap-3 no-underline"
+          style="color: var(--fg)"
+        >
+          <img src="/logo.svg" height="64" width="128" />
+          <span
+            class="font-serif text-[1.15rem] font-semibold tracking-[0.04em] leading-tight"
+          >
+            HooCS
+            <span
+              class="block font-sans font-light tracking-[0.15em] uppercase"
+              style="font-size: 0.55rem; color: var(--dim)"
+              >University of Virginia</span
+            >
+          </span>
+        </a>
+        <div class="flex items-center gap-10">
+          <a href="/" class="nav-link">Home</a>
+          <a href="/speakers" class="nav-link">Speakers</a>
+          <a href="/shoocs" class="nav-link active">SHooCS</a>
+        </div>
+      </nav>
+
+      <main class="fade-in page-pad px-12 pt-16">
+        <div class="max-w-3xl py-20">
+          <p
+            class="font-sans font-normal tracking-[0.2em] uppercase mb-6"
+            style="font-size: 0.7rem; color: var(--accent)"
+          >
+            Seminar in Humanistic Cognitive Science
+          </p>
+          <h2
+            class="font-serif font-light mb-2"
+            style="font-size: clamp(2rem, 4vw, 3.2rem); color: #0b0c10"
+          >
+            SHooCS
+          </h2>
+          <p
+            class="font-sans font-light mb-10"
+            style="font-size: 0.85rem; color: #888; letter-spacing: 0.04em"
+          >
+            Call for Proposals · Academic Year 2025–26
+          </p>
+
+          <hr
+            style="
+              border: none;
+              border-top: 1px solid #e4e4e4;
+              margin-bottom: 2.75rem;
+            "
+          />
+
+          <!-- About -->
+          <div class="mb-11">
+            <h3 class="section-heading">About SHooCS</h3>
+            <p class="body-copy">
+              The Student Humanistic Cognitive Science initiative (SHooCS)
+              invites undergraduate and graduate students at the University of
+              Virginia to propose collaborative research projects that bridge
+              humanistic inquiry and the cognitive sciences. SHooCS is designed
+              to cultivate the next generation of interdisciplinary thinkers —
+              scholars who can hold philosophical rigor and empirical method in
+              productive tension.
+            </p>
+          </div>
+
+          <!-- What We Fund -->
+          <div class="mb-11">
+            <h3 class="section-heading">What We Fund</h3>
+            <p class="body-copy">
+              SHooCS proposals may address, but are not limited to, the
+              following areas:
+            </p>
+            <ul class="prose-list">
+              <li>
+                The nature and role of spontaneous thought, mind-wandering, or
+                resting-state cognition
+              </li>
+              <li>
+                Philosophical and empirical investigation of attention,
+                distraction, and digital technology
+              </li>
+              <li>
+                Human agency, autonomy, and AI — including questions about
+                machine cognition
+              </li>
+              <li>
+                Contemplative practices and their cognitive, phenomenological,
+                or ethical dimensions
+              </li>
+              <li>
+                Conceptual analysis of constructs used in cognitive science and
+                neuroscience
+              </li>
+              <li>
+                Interdisciplinary methodologies bridging philosophy, psychology,
+                and related fields
+              </li>
+            </ul>
+          </div>
+
+          <!-- Eligibility -->
+          <div class="mb-11">
+            <h3 class="section-heading">Eligibility</h3>
+            <p class="body-copy">
+              Proposals are welcome from currently enrolled UVA undergraduate
+              and graduate students. Collaborative proposals involving students
+              from different departments or schools are especially encouraged.
+              Each proposal must include at least one faculty sponsor affiliated
+              with the HooCS Lab.
+            </p>
+          </div>
+
+          <!-- Guidelines -->
+          <div class="mb-11">
+            <h3 class="section-heading">Proposal Guidelines</h3>
+            <p class="body-copy">Submissions should include:</p>
+            <ul class="prose-list">
+              <li>Project title and a 250-word abstract</li>
+              <li>
+                A 1,500–3,000 word research proposal including aims, background,
+                and methodology
+              </li>
+              <li>Brief bibliography (not counted toward word limit)</li>
+              <li>
+                Names and affiliations of all participants and faculty sponsor
+              </li>
+              <li>
+                Proposed timeline and, if requesting funds, a budget
+                justification
+              </li>
+            </ul>
+          </div>
+
+          <!-- Submission -->
+          <div class="mb-4">
+            <h3 class="section-heading">Submission &amp; Contact</h3>
+            <p class="body-copy">
+              Proposals should be submitted by email to the HooCS Lab Director,
+              <strong style="color: #0b0c10; font-weight: 400"
+                >Zac Irving</strong
+              >, at the Department of Philosophy, University of Virginia. We
+              review proposals on a rolling basis. Decisions are typically
+              communicated within four weeks of submission.
+            </p>
+          </div>
+
+          <a
+            href="mailto:zci7c@virginia.edu"
+            class="cta-btn"
+            style="margin-top: 2.5rem"
+          >
+            Submit a Proposal
+          </a>
+        </div>
+      </main>
+
+      <!-- ── FOOTER ────────────────────────────────────────────────────────── -->
+      <footer
+        class="relative z-10 flex flex-wrap items-center justify-between gap-4 px-12 py-10"
+        style="font-size: 0.75rem; letter-spacing: 0.06em; font-weight: 300"
+      >
+        <div class="flex flex-col gap-1">
+          <span
+            class="font-serif footer-logo"
+            style="font-size: 1rem; letter-spacing: 0.04em"
+          >
+            HooCS Lab
+          </span>
+          <span>Humanistic Cognitive Science · University of Virginia</span>
+        </div>
+        <div>Department of Philosophy · Charlottesville, VA 22904</div>
+        <div>© 2025 University of Virginia</div>
+      </footer>
+    </div>
+  </body>
+</html>

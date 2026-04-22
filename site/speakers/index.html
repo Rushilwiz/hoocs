@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HooCS Lab — University of Virginia</title>
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="MyWebSite" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Space+Grotesk:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              serif: ['"Cormorant Garamond"', "Georgia", "serif"],
+              sans: ['"Space Grotesk"', "system-ui", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <canvas id="canvas-bg"></canvas>
+
+    <div id="app">
+      <nav
+        class="fixed top-0 left-0 right-0 z-50 h-16 flex items-center justify-between px-12 border-b"
+        style="
+          border-color: var(--border);
+          background: rgba(11, 12, 16, 0.75);
+          backdrop-filter: blur(16px);
+        "
+      >
+        <a
+          href="index.html"
+          class="flex items-center gap-3 no-underline"
+          style="color: var(--fg)"
+        >
+          <img src="/logo.svg" height="64" width="128" />
+          <span
+            class="font-serif text-[1.15rem] font-semibold tracking-[0.04em] leading-tight"
+          >
+            HooCS
+            <span
+              class="block font-sans font-light tracking-[0.15em] uppercase"
+              style="font-size: 0.55rem; color: var(--dim)"
+              >University of Virginia</span
+            >
+          </span>
+        </a>
+        <div class="flex items-center gap-10">
+          <a href="/" class="nav-link">Home</a>
+          <a href="/speakers" class="nav-link active">Speakers</a>
+          <a href="/shoocs" class="nav-link">SHooCS</a>
+        </div>
+      </nav>
+
+      <main class="fade-in page-pad px-12 pt-16">
+        <div class="max-w-3xl py-20">
+          <p
+            class="font-sans font-normal tracking-[0.2em] uppercase mb-6"
+            style="font-size: 0.7rem; color: var(--accent)"
+          >
+            HooCS Speaker Series
+          </p>
+          <h2
+            class="font-serif font-light mb-2"
+            style="font-size: clamp(2rem, 4vw, 3.2rem); color: var(--fg)"
+          >
+            Speakers
+          </h2>
+          <p
+            class="font-sans font-light mb-12"
+            style="
+              font-size: 0.85rem;
+              color: var(--dim);
+              letter-spacing: 0.04em;
+            "
+          >
+            Scholars bringing humanistic and scientific perspectives on mind to
+            UVA.
+          </p>
+
+          <table class="speakers-table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Affiliation</th>
+                <th>Topic / Area</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="name">Blake Harris</td>
+                <td>Philosophy, UVA</td>
+                <td>The Corruption of Salience</td>
+                <td><span class="badge">Draft</span></td>
+              </tr>
+              <tr>
+                <td class="name">Gabi Dumet</td>
+                <td>Philosophy, UVA</td>
+                <td>
+                  Being Torn: Response dependent responsibility and
+                  psychological self-conflict
+                </td>
+                <td></td>
+              </tr>
+              <tr>
+                <td class="name">Eric Schwitzgebel (with Jeremy Prober)</td>
+                <td>Philosophy, University of California Riverside</td>
+                <td>Human-AI interaction &amp; agency</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td class="name">Austin Cooper</td>
+                <td>Contemplative Sciences Center, UVA</td>
+                <td>
+                  Self-Similarity of Perception and Neural Dynamics as a Result
+                  of Meditation
+                </td>
+                <td></td>
+              </tr>
+              <tr>
+                <td class="name">Rushil Umaretiya</td>
+                <td>Philosophy, UVA</td>
+                <td>
+                  The Algorithmic Suppression of Political Salience: Why
+                  Platforms Systematically Deprioritize Actionable Concerns
+                </td>
+                <td><div class="badge">Draft</div></td>
+              </tr>
+              <tr>
+                <td class="name">David Danks</td>
+                <td>Philosophy &amp; Data Science, UVA</td>
+                <td>Psychological Freedom, Rationality, and Responsibility</td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div
+            class="mt-8 p-5"
+            style="
+              border-left: 2px solid var(--accent2);
+              background: rgba(232, 230, 225, 0.03);
+            "
+          >
+            <p style="font-size: 0.82rem; color: var(--dim); line-height: 1.65">
+              <strong style="color: var(--fg)">Note:</strong> The speaker list
+              is subject to change as we finalize details with speakers. Check
+              back for updates! If you're interested in speaking or have
+              suggestions for speakers, please
+              <a
+                href="mailto:mailto:zci7c@virginia.edu"
+                class="underline"
+                style="color: var(--accent)"
+                >contact us</a
+              >.
+            </p>
+          </div>
+        </div>
+      </main>
+      <footer
+        class="relative z-10 flex flex-wrap items-center justify-between gap-4 px-12 py-10"
+      >
+        <div class="flex flex-col gap-1">
+          <span
+            class="font-serif"
+            style="font-size: 1rem; color: var(--fg); letter-spacing: 0.04em"
+            >HooCS Lab</span
+          >
+          <span>Humanistic Cognitive Science · University of Virginia</span>
+        </div>
+        <div>Department of Philosophy · Charlottesville, VA 22904</div>
+        <div><span id="year"></span> University of Virginia</div>
+        <script>
+          document.getElementById("year").textContent =
+            "© " + new Date().getFullYear();
+        </script>
+      </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+    <script>
+      (function () {
+        const canvas = document.getElementById("canvas-bg");
+        const renderer = new THREE.WebGLRenderer({
+          canvas,
+          antialias: true,
+          alpha: true,
+        });
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(60, 1, 0.1, 1000);
+        camera.position.z = 80;
+
+        const N = 90;
+        const velocities = [];
+        const nodeGeo = new THREE.SphereGeometry(0.35, 6, 6);
+        const lineMat = new THREE.LineBasicMaterial({
+          color: 0x3a7a80,
+          transparent: true,
+          opacity: 0.18,
+        });
+
+        const nodes = [];
+        for (let i = 0; i < N; i++) {
+          const mat = new THREE.MeshBasicMaterial({
+            color: 0x4ca8b0,
+            transparent: true,
+            opacity: 0.55,
+          });
+          const mesh = new THREE.Mesh(nodeGeo, mat);
+          mesh.position.set(
+            (Math.random() - 0.5) * 160,
+            (Math.random() - 0.5) * 100,
+            (Math.random() - 0.5) * 60,
+          );
+          velocities.push(
+            new THREE.Vector3(
+              (Math.random() - 0.5) * 0.018,
+              (Math.random() - 0.5) * 0.012,
+              (Math.random() - 0.5) * 0.008,
+            ),
+          );
+          scene.add(mesh);
+          nodes.push(mesh);
+        }
+
+        let lineSegs = null;
+        function buildLines() {
+          if (lineSegs) {
+            scene.remove(lineSegs);
+            lineSegs.geometry.dispose();
+          }
+          const pts = [];
+          for (let i = 0; i < N; i++)
+            for (let j = i + 1; j < N; j++)
+              if (nodes[i].position.distanceTo(nodes[j].position) < 28)
+                pts.push(nodes[i].position.clone(), nodes[j].position.clone());
+          lineSegs = new THREE.LineSegments(
+            new THREE.BufferGeometry().setFromPoints(pts),
+            lineMat,
+          );
+          scene.add(lineSegs);
+        }
+
+        let frame = 0;
+        function animate() {
+          requestAnimationFrame(animate);
+          frame++;
+          for (let i = 0; i < N; i++) {
+            nodes[i].position.addScaledVector(velocities[i], 1);
+            const p = nodes[i].position;
+            if (Math.abs(p.x) > 82) velocities[i].x *= -1;
+            if (Math.abs(p.y) > 52) velocities[i].y *= -1;
+            if (Math.abs(p.z) > 32) velocities[i].z *= -1;
+          }
+          if (frame % 3 === 0) buildLines();
+          camera.position.x = Math.sin(frame * 0.0004) * 5;
+          camera.position.y = Math.cos(frame * 0.0003) * 3;
+          camera.lookAt(0, 0, 0);
+          renderer.render(scene, camera);
+        }
+
+        function resize() {
+          const w = window.innerWidth,
+            h = window.innerHeight;
+          renderer.setSize(w, h);
+          camera.aspect = w / h;
+          camera.updateProjectionMatrix();
+        }
+        window.addEventListener("resize", resize);
+        resize();
+        buildLines();
+        animate();
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,517 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HooCS Lab — University of Virginia</title>
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="MyWebSite" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Space+Grotesk:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              serif: ['"Cormorant Garamond"', "Georgia", "serif"],
+              sans: ['"Space Grotesk"', "system-ui", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <canvas id="canvas-bg"></canvas>
+
+    <div id="app">
+      <nav
+        class="fixed top-0 left-0 right-0 z-50 h-16 flex items-center justify-between px-12 border-b"
+        style="
+          border-color: var(--border);
+          background: rgba(11, 12, 16, 0.75);
+          backdrop-filter: blur(16px);
+        "
+      >
+        <a
+          href="index.html"
+          class="flex items-center gap-3 no-underline"
+          style="color: var(--fg)"
+        >
+          <img src="/logo.svg" height="64" width="128" />
+          <span
+            class="font-serif text-[1.15rem] font-semibold tracking-[0.04em] leading-tight"
+          >
+            HooCS
+            <span
+              class="block font-sans font-light tracking-[0.15em] uppercase"
+              style="font-size: 0.55rem; color: var(--dim)"
+              >University of Virginia</span
+            >
+          </span>
+        </a>
+        <div class="flex items-center gap-10">
+          <a href="/" class="nav-link active">Home</a>
+          <a href="/speakers" class="nav-link">Speakers</a>
+          <a href="/shoocs" class="nav-link">SHooCS</a>
+        </div>
+      </nav>
+
+      <section
+        class="fade-in hero-pad flex flex-col justify-center px-12 py-20 max-w-3xl"
+        style="min-height: calc(100vh - 64px); padding-top: calc(64px + 5rem)"
+      >
+        <p
+          class="font-sans font-normal tracking-[0.2em] uppercase mb-6"
+          style="font-size: 0.7rem; color: var(--accent)"
+        >
+          University of Virginia · Department of Philosophy
+        </p>
+        <h1 class="mb-10">
+          Humanistic<br /><em>Cognitive Science</em><br />Lab
+        </h1>
+        <p
+          class="font-sans font-light leading-[1.8] max-w-[660px]"
+          style="font-size: 1.05rem; color: var(--dim)"
+        >
+          Cognitive Science is the interdisciplinary study of the mind. Over a
+          half century ago, humanists and scientists established this field
+          together, believing we cannot uncover the mysteries of the human mind
+          from within disciplinary silos. Yet the field is retreating back to
+          those silos at a historical moment that demands interdisciplinary
+          research — as humanists and scientists grapple with the impacts of
+          technologies such as AI and social media on human minds and societies.
+        </p>
+        <p
+          class="font-sans font-light leading-[1.8] max-w-[660px] mt-5"
+          style="font-size: 1.05rem; color: var(--dim)"
+        >
+          The
+          <strong class="font-normal" style="color: var(--fg)"
+            >HooCS Lab</strong
+          >
+          is a five-year initiative incubating UVA's existing strengths to
+          establish us as a leader in the interdisciplinary study of the mind.
+          We vertically integrate humanistic and philosophical inquiry — from
+          contemplative traditions to analytic philosophy — into the core of
+          cognitive science. Our research unfolds across two related
+          problematics:
+          <strong class="font-normal" style="color: var(--fg)"
+            >spontaneous thought in an anxious world</strong
+          >, and
+          <strong class="font-normal" style="color: var(--fg)"
+            >human agency and autonomy in the age of AI</strong
+          >.
+        </p>
+
+        <div
+          class="meta-row flex flex-wrap gap-x-12 gap-y-6 mt-14 pt-8"
+          style="border-top: 1px solid var(--border)"
+        >
+          <div>
+            <div
+              class="font-sans tracking-[0.18em] uppercase mb-1.5"
+              style="font-size: 0.65rem; color: var(--dim)"
+            >
+              Director
+            </div>
+            <div class="font-serif" style="font-size: 1.1rem; color: var(--fg)">
+              Zac Irving
+            </div>
+          </div>
+          <div>
+            <div
+              class="font-sans tracking-[0.18em] uppercase mb-1.5"
+              style="font-size: 0.65rem; color: var(--dim)"
+            >
+              Established
+            </div>
+            <div class="font-serif" style="font-size: 1.1rem; color: var(--fg)">
+              2024
+            </div>
+          </div>
+          <div>
+            <div
+              class="font-sans tracking-[0.18em] uppercase mb-1.5"
+              style="font-size: 0.65rem; color: var(--dim)"
+            >
+              Institution
+            </div>
+            <div class="font-serif" style="font-size: 1.1rem; color: var(--fg)">
+              University of Virginia
+            </div>
+          </div>
+          <div>
+            <div
+              class="font-sans tracking-[0.18em] uppercase mb-1.5"
+              style="font-size: 0.65rem; color: var(--dim)"
+            >
+              PhD Students
+            </div>
+            <div class="font-serif" style="font-size: 1.1rem; color: var(--fg)">
+              13+
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="relative z-10 bg-white text-[#0b0c10] white-pad px-12 py-20"
+      >
+        <p
+          class="font-sans font-normal tracking-[0.2em] uppercase mb-4"
+          style="font-size: 0.68rem; color: #4ca8b0"
+        >
+          Core Team
+        </p>
+        <h2
+          class="font-serif font-light text-[#0b0c10] mb-2"
+          style="font-size: clamp(1.8rem, 3.5vw, 2.8rem)"
+        >
+          Faculty
+        </h2>
+        <p
+          class="font-sans font-light tracking-[0.02em] mb-14"
+          style="font-size: 0.88rem; color: #6b6b6b"
+        >
+          Photos coming soon as additional faculty join the lab.
+        </p>
+
+        <div
+          class="grid gap-8 max-w-5xl"
+          style="grid-template-columns: repeat(auto-fill, minmax(220px, 1fr))"
+        >
+          <div
+            class="border border-[#e4e4e4] bg-[#fafafa] transition-all duration-200 hover:shadow-lg hover:border-[#ccc]"
+          >
+            <div class="faculty-photo" style="background: #d0eef0">
+              <span>ZI</span>
+            </div>
+            <div class="p-5">
+              <div
+                class="font-serif mb-1"
+                style="font-size: 1.1rem; color: #0b0c10"
+              >
+                Zac Irving
+              </div>
+              <div
+                class="font-sans tracking-[0.05em] uppercase mb-2"
+                style="font-size: 0.75rem; color: #4ca8b0"
+              >
+                Director
+              </div>
+              <div
+                class="font-sans font-light leading-snug"
+                style="font-size: 0.82rem; color: #555"
+              >
+                Philosophy
+              </div>
+              <div
+                class="font-sans font-light italic mt-0.5"
+                style="font-size: 0.75rem; color: #888"
+              >
+                College of Arts &amp; Sciences
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="border border-[#e4e4e4] bg-[#fafafa] transition-all duration-200 hover:shadow-lg hover:border-[#ccc]"
+          >
+            <div class="faculty-photo" style="background: #d0eef0">
+              <span>TB</span>
+            </div>
+            <div class="p-5">
+              <div
+                class="font-serif mb-1"
+                style="font-size: 1.1rem; color: #0b0c10"
+              >
+                Trey Boone
+              </div>
+              <div
+                class="font-sans tracking-[0.05em] uppercase mb-2"
+                style="font-size: 0.75rem; color: #4ca8b0"
+              >
+                Core Faculty
+              </div>
+              <div
+                class="font-sans font-light leading-snug"
+                style="font-size: 0.82rem; color: #555"
+              >
+                Philosophy
+              </div>
+              <div
+                class="font-sans font-light italic mt-0.5"
+                style="font-size: 0.75rem; color: #888"
+              >
+                College of Arts &amp; Sciences
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="border border-[#e4e4e4] bg-[#fafafa] transition-all duration-200 hover:shadow-lg hover:border-[#ccc]"
+          >
+            <div class="faculty-photo" style="background: #dce8f0">
+              <span>DD</span>
+            </div>
+            <div class="p-5">
+              <div
+                class="font-serif mb-1"
+                style="font-size: 1.1rem; color: #0b0c10"
+              >
+                David Danks
+              </div>
+              <div
+                class="font-sans tracking-[0.05em] uppercase mb-2"
+                style="font-size: 0.75rem; color: #4ca8b0"
+              >
+                Core Faculty
+              </div>
+              <div
+                class="font-sans font-light leading-snug"
+                style="font-size: 0.82rem; color: #555"
+              >
+                Philosophy &amp; Data Science
+              </div>
+              <div
+                class="font-sans font-light italic mt-0.5"
+                style="font-size: 0.75rem; color: #888"
+              >
+                College of Arts &amp; Sciences
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="border border-[#e4e4e4] bg-[#fafafa] transition-all duration-200 hover:shadow-lg hover:border-[#ccc]"
+          >
+            <div class="faculty-photo" style="background: #e8e4d8">
+              <span>SK</span>
+            </div>
+            <div class="p-5">
+              <div
+                class="font-serif mb-1"
+                style="font-size: 1.1rem; color: #0b0c10"
+              >
+                Sheisha Kulkarni
+              </div>
+              <div
+                class="font-sans tracking-[0.05em] uppercase mb-2"
+                style="font-size: 0.75rem; color: #4ca8b0"
+              >
+                Core Faculty
+              </div>
+              <div
+                class="font-sans font-light leading-snug"
+                style="font-size: 0.82rem; color: #555"
+              >
+                Commerce
+              </div>
+              <div
+                class="font-sans font-light italic mt-0.5"
+                style="font-size: 0.75rem; color: #888"
+              >
+                McIntire School of Commerce
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="border border-[#e4e4e4] bg-[#fafafa] transition-all duration-200 hover:shadow-lg hover:border-[#ccc]"
+          >
+            <div class="faculty-photo" style="background: #d0eef0">
+              <span>JM</span>
+            </div>
+            <div class="p-5">
+              <div
+                class="font-serif mb-1"
+                style="font-size: 1.1rem; color: #0b0c10"
+              >
+                Jordan MacKenzie
+              </div>
+              <div
+                class="font-sans tracking-[0.05em] uppercase mb-2"
+                style="font-size: 0.75rem; color: #4ca8b0"
+              >
+                Core Faculty
+              </div>
+              <div
+                class="font-sans font-light leading-snug"
+                style="font-size: 0.82rem; color: #555"
+              >
+                Philosophy
+              </div>
+              <div
+                class="font-sans font-light italic mt-0.5"
+                style="font-size: 0.75rem; color: #888"
+              >
+                College of Arts &amp; Sciences
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="border border-[#e4e4e4] bg-[#fafafa] transition-all duration-200 hover:shadow-lg hover:border-[#ccc]"
+          >
+            <div class="faculty-photo" style="background: #e0d8f0">
+              <span>MS</span>
+            </div>
+            <div class="p-5">
+              <div
+                class="font-serif mb-1"
+                style="font-size: 1.1rem; color: #0b0c10"
+              >
+                Michael Sheehy
+              </div>
+              <div
+                class="font-sans tracking-[0.05em] uppercase mb-2"
+                style="font-size: 0.75rem; color: #4ca8b0"
+              >
+                Core Faculty
+              </div>
+              <div
+                class="font-sans font-light leading-snug"
+                style="font-size: 0.82rem; color: #555"
+              >
+                Contemplative Sciences
+              </div>
+              <div
+                class="font-sans font-light italic mt-0.5"
+                style="font-size: 0.75rem; color: #888"
+              >
+                Contemplative Sciences Center
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer
+        class="relative z-10 flex flex-wrap items-center justify-between gap-4 px-12 py-10"
+      >
+        <div class="flex flex-col gap-1">
+          <span
+            class="font-serif"
+            style="font-size: 1rem; color: var(--fg); letter-spacing: 0.04em"
+            >HooCS Lab</span
+          >
+          <span>Humanistic Cognitive Science · University of Virginia</span>
+        </div>
+        <div>Department of Philosophy · Charlottesville, VA 22904</div>
+        <div><span id="year"></span> University of Virginia</div>
+        <script>
+          document.getElementById("year").textContent =
+            "© " + new Date().getFullYear();
+        </script>
+      </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+    <script>
+      (function () {
+        const canvas = document.getElementById("canvas-bg");
+        const renderer = new THREE.WebGLRenderer({
+          canvas,
+          antialias: true,
+          alpha: true,
+        });
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(60, 1, 0.1, 1000);
+        camera.position.z = 80;
+
+        const N = 90;
+        const velocities = [];
+        const nodeGeo = new THREE.SphereGeometry(0.35, 6, 6);
+        const lineMat = new THREE.LineBasicMaterial({
+          color: 0x3a7a80,
+          transparent: true,
+          opacity: 0.18,
+        });
+
+        const nodes = [];
+        for (let i = 0; i < N; i++) {
+          const mat = new THREE.MeshBasicMaterial({
+            color: 0x4ca8b0,
+            transparent: true,
+            opacity: 0.55,
+          });
+          const mesh = new THREE.Mesh(nodeGeo, mat);
+          mesh.position.set(
+            (Math.random() - 0.5) * 160,
+            (Math.random() - 0.5) * 100,
+            (Math.random() - 0.5) * 60,
+          );
+          velocities.push(
+            new THREE.Vector3(
+              (Math.random() - 0.5) * 0.018,
+              (Math.random() - 0.5) * 0.012,
+              (Math.random() - 0.5) * 0.008,
+            ),
+          );
+          scene.add(mesh);
+          nodes.push(mesh);
+        }
+
+        let lineSegs = null;
+        function buildLines() {
+          if (lineSegs) {
+            scene.remove(lineSegs);
+            lineSegs.geometry.dispose();
+          }
+          const pts = [];
+          for (let i = 0; i < N; i++)
+            for (let j = i + 1; j < N; j++)
+              if (nodes[i].position.distanceTo(nodes[j].position) < 28)
+                pts.push(nodes[i].position.clone(), nodes[j].position.clone());
+          lineSegs = new THREE.LineSegments(
+            new THREE.BufferGeometry().setFromPoints(pts),
+            lineMat,
+          );
+          scene.add(lineSegs);
+        }
+
+        let frame = 0;
+        function animate() {
+          requestAnimationFrame(animate);
+          frame++;
+          for (let i = 0; i < N; i++) {
+            nodes[i].position.addScaledVector(velocities[i], 1);
+            const p = nodes[i].position;
+            if (Math.abs(p.x) > 82) velocities[i].x *= -1;
+            if (Math.abs(p.y) > 52) velocities[i].y *= -1;
+            if (Math.abs(p.z) > 32) velocities[i].z *= -1;
+          }
+          if (frame % 3 === 0) buildLines();
+          camera.position.x = Math.sin(frame * 0.0004) * 5;
+          camera.position.y = Math.cos(frame * 0.0003) * 3;
+          camera.lookAt(0, 0, 0);
+          renderer.render(scene, camera);
+        }
+
+        function resize() {
+          const w = window.innerWidth,
+            h = window.innerHeight;
+          renderer.setSize(w, h);
+          camera.aspect = w / h;
+          camera.updateProjectionMatrix();
+        }
+        window.addEventListener("resize", resize);
+        resize();
+        buildLines();
+        animate();
+      })();
+    </script>
+  </body>
+</html>
