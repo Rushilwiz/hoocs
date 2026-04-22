@@ -105,6 +105,28 @@
         </div>
       </div>
 
+      <script>
+        (function () {
+          const btn = document.getElementById("nav-toggle");
+          const drawer = document.getElementById("nav-drawer");
+          let open = false;
+          btn.addEventListener("click", function () {
+            open = !open;
+            drawer.style.display = open ? "flex" : "none";
+            const bars = btn.querySelectorAll(".hamburger-bar");
+            if (open) {
+              bars[0].style.transform = "translateY(6.5px) rotate(45deg)";
+              bars[1].style.opacity = "0";
+              bars[2].style.transform = "translateY(-6.5px) rotate(-45deg)";
+            } else {
+              bars[0].style.transform = "";
+              bars[1].style.opacity = "";
+              bars[2].style.transform = "";
+            }
+          });
+        })();
+      </script>
+
       <main class="fade-in page-pad px-12 pt-16">
         <div class="max-w-3xl py-20">
           <p

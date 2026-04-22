@@ -105,6 +105,28 @@
         </div>
       </div>
 
+      <script>
+        (function () {
+          const btn = document.getElementById("nav-toggle");
+          const drawer = document.getElementById("nav-drawer");
+          let open = false;
+          btn.addEventListener("click", function () {
+            open = !open;
+            drawer.style.display = open ? "flex" : "none";
+            const bars = btn.querySelectorAll(".hamburger-bar");
+            if (open) {
+              bars[0].style.transform = "translateY(6.5px) rotate(45deg)";
+              bars[1].style.opacity = "0";
+              bars[2].style.transform = "translateY(-6.5px) rotate(-45deg)";
+            } else {
+              bars[0].style.transform = "";
+              bars[1].style.opacity = "";
+              bars[2].style.transform = "";
+            }
+          });
+        })();
+      </script>
+
       <section
         class="fade-in hero-pad flex flex-col justify-center px-12 py-20 max-w-3xl"
         style="min-height: calc(100vh - 64px); padding-top: calc(64px + 5rem)"
