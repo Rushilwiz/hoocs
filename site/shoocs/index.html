@@ -3,12 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SHooCS — HooCS Lab</title>
+    <title>SSHooCS — Summer Seminars in Humanistic Cognitive Science</title>
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="shortcut icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <meta name="apple-mobile-web-app-title" content="MyWebSite" />
+    <meta name="apple-mobile-web-app-title" content="HooCS Hub" />
     <link rel="manifest" href="/site.webmanifest" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
@@ -45,11 +45,34 @@
         margin-bottom: 0.85rem;
       }
 
+      .eyebrow-sm {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 0.65rem;
+        font-weight: 400;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: #888;
+        margin-bottom: 1rem;
+      }
+
       .body-copy {
         font-size: 0.92rem;
         line-height: 1.8;
         color: #444;
         font-weight: 300;
+      }
+
+      .body-copy a {
+        color: var(--accent);
+        text-decoration: none;
+        border-bottom: 1px solid rgba(76, 168, 176, 0.4);
+        transition:
+          color 0.2s,
+          border-color 0.2s;
+      }
+      .body-copy a:hover {
+        color: #0b0c10;
+        border-bottom-color: #0b0c10;
       }
 
       .prose-list {
@@ -66,6 +89,179 @@
       }
       .prose-list li::marker {
         color: var(--accent);
+      }
+
+      /* Quick-fact table at top */
+      .facts-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 2.75rem;
+      }
+      .facts-table th,
+      .facts-table td {
+        text-align: left;
+        padding: 0.7rem 1rem 0.7rem 0;
+        font-size: 0.92rem;
+        line-height: 1.6;
+        vertical-align: top;
+        border-bottom: 1px solid #eee;
+      }
+      .facts-table th {
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 500;
+        color: #0b0c10;
+        width: 11rem;
+        white-space: nowrap;
+      }
+      .facts-table td {
+        color: #444;
+        font-weight: 300;
+      }
+
+      /* Who-should-apply column blocks */
+      .apply-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0;
+        border-top: 1px solid #e4e4e4;
+        border-bottom: 1px solid #e4e4e4;
+        margin-top: 0.75rem;
+      }
+      .apply-cell {
+        padding: 1.4rem 1.25rem;
+        border-right: 1px solid #e4e4e4;
+      }
+      .apply-cell:last-child {
+        border-right: none;
+      }
+      .apply-cell h4 {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.15rem;
+        font-weight: 600;
+        color: #0b0c10;
+        text-align: center;
+        margin-bottom: 0.6rem;
+      }
+      .apply-cell p {
+        font-size: 0.86rem;
+        line-height: 1.7;
+        color: #555;
+        font-weight: 300;
+        text-align: center;
+      }
+
+      .pull-quote {
+        border-left: 2px solid #0b0c10;
+        padding: 0.5rem 0 0.5rem 1.1rem;
+        margin-top: 1.25rem;
+        font-family: "Cormorant Garamond", serif;
+        font-style: italic;
+        font-size: 1rem;
+        line-height: 1.6;
+        color: #333;
+      }
+
+      /* Two-column row table (seminar structure, what you receive) */
+      .row-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 0.5rem;
+      }
+      .row-table th,
+      .row-table td {
+        text-align: left;
+        vertical-align: top;
+        padding: 0.95rem 1rem 0.95rem 0;
+        border-bottom: 1px solid #eee;
+        font-size: 0.92rem;
+        line-height: 1.7;
+      }
+      .row-table th {
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 500;
+        color: #0b0c10;
+        width: 11rem;
+        white-space: nowrap;
+      }
+      .row-table td {
+        color: #444;
+        font-weight: 300;
+      }
+      .row-table th.muted {
+        color: #888;
+        font-weight: 400;
+      }
+
+      /* Gold mixer/form banner */
+      .mixer-banner {
+        background: #fdf6e3;
+        border-bottom: 1px solid rgba(196, 155, 60, 0.45);
+      }
+      .mixer-banner-inner {
+        max-width: 48rem;
+        margin: 0 auto;
+        padding: 1.1rem 3rem;
+        display: flex;
+        align-items: center;
+        gap: 2.25rem;
+        flex-wrap: wrap;
+      }
+      .mixer-banner-item {
+        display: flex;
+        flex-direction: column;
+        gap: 0.2rem;
+        min-width: 0;
+      }
+      .mixer-banner-label {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 0.62rem;
+        font-weight: 500;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: #8a6914;
+      }
+      .mixer-banner-value {
+        font-size: 0.9rem;
+        font-weight: 400;
+        color: #0b0c10;
+      }
+      .mixer-banner a.mixer-banner-value {
+        text-decoration: none;
+        border-bottom: 1px solid rgba(196, 155, 60, 0.5);
+        transition: border-color 0.2s;
+        word-break: break-all;
+      }
+      .mixer-banner a.mixer-banner-value:hover {
+        border-bottom-color: #0b0c10;
+      }
+      .mixer-banner-divider {
+        width: 1px;
+        align-self: stretch;
+        background: rgba(196, 155, 60, 0.4);
+      }
+
+      .info-block {
+        margin-top: 2.5rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid #0b0c10;
+        display: grid;
+        grid-template-columns: max-content 1fr;
+        gap: 0.45rem 1.5rem;
+        font-size: 0.85rem;
+        line-height: 1.6;
+        color: #444;
+        font-weight: 300;
+      }
+      .info-block dt {
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 500;
+        color: #0b0c10;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        font-size: 0.72rem;
+      }
+      .info-block dd {
+        margin: 0;
       }
 
       footer {
@@ -86,6 +282,34 @@
         .page-pad {
           padding-left: 1.25rem !important;
           padding-right: 1.25rem !important;
+        }
+        .facts-table th,
+        .row-table th {
+          width: 8rem;
+        }
+        .apply-grid {
+          grid-template-columns: 1fr;
+        }
+        .apply-cell {
+          border-right: none;
+          border-bottom: 1px solid #e4e4e4;
+        }
+        .apply-cell:last-child {
+          border-bottom: none;
+        }
+        .info-block {
+          grid-template-columns: 1fr;
+          gap: 0.15rem;
+        }
+        .info-block dd {
+          margin-bottom: 0.6rem;
+        }
+        .mixer-banner-inner {
+          padding: 1rem 1.25rem;
+          gap: 1rem;
+        }
+        .mixer-banner-divider {
+          display: none;
         }
       }
     </style>
@@ -119,9 +343,9 @@
             </span>
           </a>
           <div class="hidden md:flex items-center gap-10">
-            <a href="/" class="nav-link active">Home</a>
+            <a href="/" class="nav-link">Home</a>
             <a href="/speakers" class="nav-link">Speakers</a>
-            <a href="/shoocs" class="nav-link">SHooCS</a>
+            <a href="/shoocs" class="nav-link active">SHooCS</a>
           </div>
           <button
             id="nav-toggle"
@@ -153,11 +377,11 @@
             border-bottom: 1px solid var(--border);
           "
         >
-          <a href="/" class="nav-link active" style="font-size: 0.9rem">Home</a>
+          <a href="/" class="nav-link" style="font-size: 0.9rem">Home</a>
           <a href="/speakers" class="nav-link" style="font-size: 0.9rem"
             >Speakers</a
           >
-          <a href="/shoocs" class="nav-link" style="font-size: 0.9rem"
+          <a href="/shoocs" class="nav-link active" style="font-size: 0.9rem"
             >SHooCS</a
           >
         </div>
@@ -185,133 +409,273 @@
         })();
       </script>
 
-      <main class="fade-in page-pad px-12 pt-16">
-        <div class="max-w-3xl py-20">
-          <p
-            class="font-sans font-normal tracking-[0.2em] uppercase mb-6"
-            style="font-size: 0.7rem; color: var(--accent)"
-          >
-            Seminar in Humanistic Cognitive Science
-          </p>
-          <h2
-            class="font-serif font-light mb-2"
-            style="font-size: clamp(2rem, 4vw, 3.2rem); color: #0b0c10"
-          >
-            SHooCS
-          </h2>
-          <p
-            class="font-sans font-light mb-10"
-            style="font-size: 0.85rem; color: #888; letter-spacing: 0.04em"
-          >
-            Call for Proposals · Academic Year 2025–26
-          </p>
-
-          <hr
-            style="
-              border: none;
-              border-top: 1px solid #e4e4e4;
-              margin-bottom: 2.75rem;
-            "
-          />
-
-          <div class="mb-11">
-            <h3 class="section-heading">About SHooCS</h3>
-            <p class="body-copy">
-              The Student Humanistic Cognitive Science initiative (SHooCS)
-              invites undergraduate and graduate students at the University of
-              Virginia to propose collaborative research projects that bridge
-              humanistic inquiry and the cognitive sciences. SHooCS is designed
-              to cultivate the next generation of interdisciplinary thinkers —
-              scholars who can hold philosophical rigor and empirical method in
-              productive tension.
+      <main class="fade-in pt-16">
+        <aside class="mixer-banner">
+          <div class="mixer-banner-inner">
+            <div class="mixer-banner-item">
+              <span class="mixer-banner-label">Team-Finding Mixer</span>
+              <span class="mixer-banner-value">May 6, 2026 · Cocke Hall</span>
+            </div>
+            <div class="mixer-banner-divider" aria-hidden="true"></div>
+            <div class="mixer-banner-item">
+              <span class="mixer-banner-label">Team-Finding Form</span>
+              <a
+                href="https://forms.gle/k5fjQrT7Tky7t2GQ9"
+                target="_blank"
+                rel="noopener"
+                class="mixer-banner-value"
+                >forms.gle/k5fjQrT7Tky7t2GQ9</a
+              >
+            </div>
+          </div>
+        </aside>
+        <div class="page-pad px-12">
+          <div class="max-w-3xl py-10">
+            <p
+              class="font-sans font-normal tracking-[0.2em] uppercase mb-6"
+              style="font-size: 0.7rem; color: var(--accent)"
+            >
+              Summer Seminars in Humanistic Cognitive Science
             </p>
-          </div>
-
-          <div class="mb-11">
-            <h3 class="section-heading">What We Fund</h3>
-            <p class="body-copy">
-              SHooCS proposals may address, but are not limited to, the
-              following areas:
+            <h2
+              class="font-serif font-light mb-2"
+              style="font-size: clamp(2rem, 4vw, 3.2rem); color: #0b0c10"
+            >
+              SSHooCS
+            </h2>
+            <p
+              class="font-serif italic font-light mb-10"
+              style="font-size: 1.05rem; color: #666; letter-spacing: 0.01em"
+            >
+              Inaugural Cohort · August 12–18, 2026
             </p>
-            <ul class="prose-list">
-              <li>
-                The nature and role of spontaneous thought, mind-wandering, or
-                resting-state cognition
-              </li>
-              <li>
-                Philosophical and empirical investigation of attention,
-                distraction, and digital technology
-              </li>
-              <li>
-                Human agency, autonomy, and AI — including questions about
-                machine cognition
-              </li>
-              <li>
-                Contemplative practices and their cognitive, phenomenological,
-                or ethical dimensions
-              </li>
-              <li>
-                Conceptual analysis of constructs used in cognitive science and
-                neuroscience
-              </li>
-              <li>
-                Interdisciplinary methodologies bridging philosophy, psychology,
-                and related fields
-              </li>
-            </ul>
-          </div>
 
-          <div class="mb-11">
-            <h3 class="section-heading">Eligibility</h3>
-            <p class="body-copy">
-              Proposals are welcome from currently enrolled UVA undergraduate
-              and graduate students. Collaborative proposals involving students
-              from different departments or schools are especially encouraged.
-              Each proposal must include at least one faculty sponsor affiliated
-              with the HooCS Lab.
-            </p>
-          </div>
+            <table class="facts-table">
+              <tbody>
+                <tr>
+                  <th>Format</th>
+                  <td>Five-day summer seminar</td>
+                </tr>
+                <tr>
+                  <th>Participants</th>
+                  <td>10–20 students (5–10 humanist/scientist teams)</td>
+                </tr>
+                <tr>
+                  <th>Who</th>
+                  <td>
+                    PhD students, advanced undergrads &amp; postdocs
+                    (interdisciplinary teams encouraged)
+                  </td>
+                </tr>
+                <tr>
+                  <th>When</th>
+                  <td>August 12–18, 2026</td>
+                </tr>
+                <tr>
+                  <th>Deadline</th>
+                  <td>Proposals due May 31, 2026</td>
+                </tr>
+              </tbody>
+            </table>
 
-          <div class="mb-11">
-            <h3 class="section-heading">Proposal Guidelines</h3>
-            <p class="body-copy">Submissions should include:</p>
-            <ul class="prose-list">
-              <li>Project title and a 250-word abstract</li>
-              <li>
-                A 1,500–3,000 word research proposal including aims, background,
-                and methodology
-              </li>
-              <li>Brief bibliography (not counted toward word limit)</li>
-              <li>
-                Names and affiliations of all participants and faculty sponsor
-              </li>
-              <li>
-                Proposed timeline and, if requesting funds, a budget
-                justification
-              </li>
-            </ul>
-          </div>
+            <div class="mb-11">
+              <p class="eyebrow-sm">About the Seminars</p>
+              <p class="body-copy">
+                The inaugural Summer Seminar in Humanistic Cognitive Science
+                (SSHooCS) will bring together a small cohort of humanist and
+                scientist students for five intensive days of cross-disciplinary
+                training, collaboration, and research development. Our approach
+                is modeled on the Duke Summer Seminars in Neuroscience and
+                Philosophy — arguably the world's most successful mechanism for
+                training humanistic cognitive scientists. Participants will
+                leave with a fully developed interdisciplinary research project
+                that they will complete in Academic Year 2026/2027, a network of
+                collaborators across UVA, and the concrete skills to pursue
+                interdisciplinary research and funding in HooCS and beyond.
+                SSHooCS will take place over five days between August 12–18
+                (with two days off for the weekend).
+              </p>
+            </div>
 
-          <!-- Submission -->
-          <div class="mb-4">
-            <h3 class="section-heading">Submission &amp; Contact</h3>
-            <p class="body-copy">
-              Proposals should be submitted by email to the HooCS Lab Director,
-              <strong style="color: #0b0c10; font-weight: 400"
-                >Zac Irving</strong
-              >, at the Department of Philosophy, University of Virginia. We
-              review proposals on a rolling basis. Decisions are typically
-              communicated within four weeks of submission.
-            </p>
-          </div>
+            <div class="mb-11">
+              <p class="eyebrow-sm">Who Should Apply</p>
+              <div class="apply-grid">
+                <div class="apply-cell">
+                  <h4>Graduate Students</h4>
+                  <p>
+                    Humanists and scientists will be given equal consideration.
+                  </p>
+                </div>
+                <div class="apply-cell">
+                  <h4>Select Undergraduates</h4>
+                  <p>
+                    Advanced undergraduates with research experience, plans for
+                    grad school, and a grad partner.
+                  </p>
+                </div>
+                <div class="apply-cell">
+                  <h4>Postdocs</h4>
+                  <p>Postdoctoral Fellows.</p>
+                </div>
+              </div>
+              <p class="pull-quote">
+                Team applications — one humanist and one scientist — will be
+                given preference in selection, but solo applications also
+                considered.
+              </p>
+              <p class="body-copy" style="margin-top: 1.25rem">
+                SSHooCS is designed to build bridges, not filter for those who
+                already speak multiple disciplinary languages. If you are a
+                philosopher curious about psychology, a psychologist drawn to
+                ethics, or a social scientist interested in contemplative
+                traditions, this is for you.
+              </p>
+            </div>
 
-          <a
-            href="mailto:zci7c@virginia.edu"
-            class="cta-btn"
-            style="margin-top: 2.5rem"
-          >
-            Submit a Proposal
-          </a>
+            <div class="mb-11">
+              <p class="eyebrow-sm">Seminar Structure</p>
+              <table class="row-table">
+                <tbody>
+                  <tr>
+                    <th class="muted">Days 1–4</th>
+                    <td>
+                      Morning interdisciplinary seminars: humanist faculty train
+                      scientist participants and vice versa, building a shared
+                      vocabulary. Afternoon collaboration sessions: mixed teams
+                      develop interdisciplinary research projects under faculty
+                      guidance.
+                    </td>
+                  </tr>
+                  <tr>
+                    <th class="muted">Day 5</th>
+                    <td>
+                      Proposal development workshop: teams translate their
+                      projects into short, fundable interdisciplinary grant
+                      proposals with mentorship from HooCS faculty and Arts
+                      &amp; Sciences Research Development staff.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="mb-11">
+              <p class="eyebrow-sm">What Participants Receive</p>
+              <table class="row-table">
+                <tbody>
+                  <tr>
+                    <th>Stipend</th>
+                    <td>Each HooCS participant receives a $1,000 stipend.</td>
+                  </tr>
+                  <tr>
+                    <th>Seed funding</th>
+                    <td>
+                      Teams receive up to $1,500 in research funds to complete
+                      their projects throughout 2026/2027.
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>Research mentorship</th>
+                    <td>
+                      Sustained engagement with HooCS faculty across Philosophy,
+                      Psychology, Data Science, and the Contemplative Sciences.
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>Grant development</th>
+                    <td>
+                      Mentorship on applying for external funding for
+                      interdisciplinary research (Templeton, Tiny Blue Dot, NEH,
+                      NSF, and others).
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>HooCS community</th>
+                    <td>
+                      Ongoing affiliation with the HooCS Hub, including biweekly
+                      lab meetings, data science support, and the broader
+                      research network.
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>SSNAP support</th>
+                    <td>
+                      Outstanding teams will receive mentorship from UVA to
+                      develop their projects into an application for SSNAP at
+                      Duke.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="mb-4">
+              <p class="eyebrow-sm">How to Apply</p>
+              <p class="body-copy">
+                Applications must be submitted by
+                <strong style="color: #0b0c10; font-weight: 500"
+                  >May 31, 2026</strong
+                >
+                to
+                <a
+                  href="mailto:hoocs@virginia.edu?subject=SSHooCS%20Inaugural%20Cohort%20Application"
+                  >hoocs@virginia.edu</a
+                >. Applications should be formatted as a single .pdf with:
+              </p>
+              <ul class="prose-list">
+                <li>
+                  A brief statement of interest (750 words max) describing your
+                  research background(s), what you hope to work on, and why
+                  SSHooCS is the right environment for this project.
+                </li>
+                <li>
+                  If applying as a team, a joint statement (250 words max)
+                  explaining how your backgrounds complement each other.
+                </li>
+                <li>Current CVs for each team member.</li>
+                <li>
+                  A list of potential faculty mentors (or, even better, a
+                  faculty member who has agreed to mentor the project).
+                </li>
+              </ul>
+              <p class="body-copy" style="margin-top: 1.25rem">
+                To find an interdisciplinary partner, you can fill out our
+                <a
+                  href="https://forms.gle/k5fjQrT7Tky7t2GQ9"
+                  target="_blank"
+                  rel="noopener"
+                  >Team Finding Form</a
+                >
+                and/or attend our team-finding mixer on May 6, 11:00am–12:30pm
+                in Cocke Hall's Baltz Library.
+              </p>
+            </div>
+
+            <dl class="info-block">
+              <dt>Application Deadline</dt>
+              <dd>May 31, 2026</dd>
+              <dt>Questions &amp; Submissions</dt>
+              <dd>
+                <a
+                  href="mailto:hoocs@virginia.edu?subject=SSHooCS%20Inaugural%20Cohort%20Application"
+                  style="
+                    color: var(--accent);
+                    text-decoration: none;
+                    border-bottom: 1px solid rgba(76, 168, 176, 0.4);
+                  "
+                  >hoocs@virginia.edu</a
+                >
+              </dd>
+            </dl>
+
+            <a
+              href="mailto:hoocs@virginia.edu?subject=SSHooCS%20Inaugural%20Cohort%20Application"
+              class="cta-btn"
+              style="margin-top: 2.5rem"
+            >
+              Submit an Application
+            </a>
+          </div>
         </div>
       </main>
 
@@ -325,12 +689,12 @@
             class="font-serif footer-logo"
             style="font-size: 1rem; letter-spacing: 0.04em"
           >
-            HooCS Lab
+            HooCS Hub
           </span>
           <span>Humanistic Cognitive Science · University of Virginia</span>
         </div>
         <div>Department of Philosophy · Charlottesville, VA 22904</div>
-        <div>© 2025 University of Virginia</div>
+        <div>© 2026 University of Virginia</div>
       </footer>
     </div>
   </body>
