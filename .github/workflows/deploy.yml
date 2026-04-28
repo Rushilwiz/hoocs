@@ -1,0 +1,19 @@
+name: Deploy HooCS Hub 
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    name: Sync to Local Nginx
+    runs-on: self-hosted
+
+    steps:
+    - name: Deploy and Reload
+      run: |
+        cd /sites/hoocs.science
+        git pull origin main
+        sudo systemctl reload nginx
+
